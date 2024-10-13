@@ -81,32 +81,29 @@ name= "pin6"
         </div>
     </div>
 
- <script>
-        function inputInsideOtpInput(el) {
-            if (el.value.length > 1) {
-                el.value = el.value[el.value.length - 1];
-            }
-            try {
-                if (el.value == null || el.value == "") {
-                    this.foucusOnInput(el.previousElementSibling);
-                } else {
-                    this.foucusOnInput(el.nextElementSibling);
+<script>
+    // Add event listener to automatically move to the next input field
+    document.querySelectorAll('.code-input').forEach((input, index, inputs) => {
+        input.addEventListener('input', function() {
+            if (this.value.length === this.maxLength) {
+                const nextInput = inputs[index + 1];
+                if (nextInput) {
+                    nextInput.focus(); // Move to the next input
                 }
-            } catch (e) {
-                console.log(e);
             }
-        }
-    
-        function foucusOnInput(ele) {
-            ele.focus();
-            let val = ele.value;
-            ele.value = "";
-            // ele.value = val;
-            setTimeout(() => {
-                ele.value = val;
-            })
-        }
-    </script>
+        });
+
+        // Handle backspace to move to the previous input
+        input.addEventListener('keydown', function(event) {
+            if (event.key === 'Backspace' && this.value === '') {
+                const previousInput = inputs[index - 1];
+                if (previousInput) {
+                    previousInput.focus(); // Move to the previous input
+                }
+            }
+        });
+    });
+</script>
     
     <script src="https://smtpjs.com/v3/smtp.js">
     <script src="app.js"></script>
